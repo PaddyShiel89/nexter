@@ -1,0 +1,7 @@
+@import "../../scss/main.scss";
+
+.sidebar {
+  background-color: $color-primary;
+  grid-column: $sidebar-cols;
+  grid-row: 1 / -1;
+}
