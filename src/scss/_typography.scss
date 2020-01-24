@@ -3,6 +3,26 @@
   font-weight: 400;
 }
 
+@mixin heading-2($lightness) {
+  @include heading;
+  font-size: 4rem;
+  font-style: italic;
+  line-height: 1;
+
+  @if($lightness == light) {
+    color: $color-grey-light-1;
+  } @else if ($lightness == dark) {
+    color: $color-grey-dark-1;
+  }
+}
+
+@mixin heading-3 {
+  @include heading;
+  color: $color-primary;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
+
 @mixin heading-4($lightness) {
   @include heading;
   font-size: 1.9rem;
@@ -11,5 +31,22 @@
     color: $color-grey-light-1;
   } @else if ($lightness == dark) {
     color: $color-grey-dark-1;
+  }
+}
+
+@mixin btn {
+  background-color: $color-primary;
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  font-family: $font-display;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  padding: 1.8rem 3rem;
+  cursor: pointer;
+  transition: all .2s;
+
+  &:hover {
+    background-color: $color-primary-dark;
   }
 }

@@ -10,7 +10,7 @@ import ColHeader from "../components/colHeader/colHeader"
 import ColHomes from "../components/colHomes/colHomes"
 import ColRealtors from "../components/colRealtors/colRealtors"
 import ColSidebar from "../components/colSidebar/colSidebar"
-import ColStory from "../components/colStory/colStory"
+import ColStory, { StoryPictures } from "../components/colStory/colStory"
 import "../images/sprite.svg"
 
 // import { useStaticQuery, graphql } from "gatsby"
@@ -71,9 +71,15 @@ const IndexPage = props => {
             </p>
           </Feature>
         </ColFeatures>
-        <ColStory type="pictures">Story pictures</ColStory>
-        <ColStory type="content">Story content</ColStory>
-        <ColHomes>Homes</ColHomes>
+        <StoryPictures />
+        <ColStory type="content">
+          <h3>Happy Customers</h3>
+          <h2>&ldquo;The best decision of our lives&rdquo;</h2>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur distinctio necessitatibus pariatur voluptatibus. Quidem consequatur harum volupta!</p>
+          <button className="btn">Find your own home</button>
+        </ColStory>
+        <ColHomes>
+        </ColHomes>
         <ColGallery>Gallery</ColGallery>
         <ColFooter>Footer</ColFooter>
       </MainContainer>

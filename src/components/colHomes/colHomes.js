@@ -1,10 +1,119 @@
 import React from 'react'
 import styles from './colHomes.module.scss'
+import Img from 'gatsby-image'
+import { useStaticQuery, graphql } from "gatsby"
 
-const homes = ({children}) => (
-  <section className={styles.homes}>
-    {children}
-  </section>
-)
+const Homes = () => {
+  const data = useStaticQuery(graphql`
+  query HomesImages {
+    allFile(filter: {relativeDirectory: {eq: "homes"}}, sort: {fields: childImageSharp___fluid___originalName}) {
+      nodes {
+        childImageSharp {
+          id
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }`)
 
-export default homes
+  const houseData = [
+    {
+      alt: "House 1",
+      name: "Beautiful Family House",
+      location: "USA",
+      rooms: 5,
+      area: 325,
+      price: "1,200,000"
+    },
+    {
+      alt: "House 2",
+      name: "Modern Glass Villa",
+      location: "Canada",
+      rooms: 6,
+      area: 455,
+      price: "2,750,000"
+    },
+    {
+      alt: "House 3",
+      name: "Cozy Country House",
+      location: "UK",
+      rooms: 4,
+      area: 250,
+      price: "850,000"
+    },
+    {
+      alt: "House 4",
+      name: "Large Rustical Villa",
+      location: "Portugal",
+      rooms: 6,
+      area: 480,
+      price: "1,950,000"
+    },
+    {
+      alt: "House 5",
+      name: "Majestic Palace House",
+      location: "Germany",
+      rooms: 18,
+      area: 4230,
+      price: "9,500,000"
+    },
+    {
+      alt: "House 6",
+      name: "Modern Familiy Apartment",
+      location: "Italy",
+      rooms: 3,
+      area: 180,
+      price: "600,000"
+    },
+  ]
+
+  for(let i = 0; i < houseData.length; i++) {
+    houseData[i].key = data.allFile.nodes[i].childImageSharp.id
+    houseData[i].imageFluid = data.allFile.nodes[i].childImageSharp.fluid
+  }
+
+  console.log(data)
+
+  return (
+    <section className={styles.homes}>
+      {houseData.map(house => (
+        <div className={styles.home} key={house.key}>
+          <Img fluid={house.imageFluid} />
+          <svg>
+            <use xlinkHref={`#sprite_icon-heart-full`} />
+          </svg>
+          <h5>{house.name}</h5>
+          <div className={styles.details}>
+            <svg>
+              <use xlinkHref={`#sprite_icon-map-pin`} />
+            </svg>
+            <p>{house.location}</p>
+          </div>
+          <div className={styles.details}>
+            <svg>
+              <use xlinkHref={`#sprite_icon-profile-male`} />
+            </svg>
+            <p>{house.rooms} rooms</p>
+          </div>
+          <div className={styles.details}>
+            <svg>
+              <use xlinkHref={`#sprite_icon-expand`} />
+            </svg>
+            <p>{house.area}m<sup>2</sup></p>
+          </div>
+          <div className={styles.details}>
+            <svg>
+              <use xlinkHref={`#sprite_icon-key`} />
+            </svg>
+            <p>${house.price}</p>
+          </div>
+          <button>Contact realtor</button>
+        </div>
+      ))}
+    </section>
+  )
+}
+
+export default Homes
