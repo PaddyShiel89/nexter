@@ -1,9 +1,9 @@
-import React from 'react'
-import styles from './colSidebar.module.scss'
+import React from "react"
+import styles from "./colSidebar.module.scss"
 
-const sidebar = ({children}) => (
+const sidebar = () => (
   <div className={styles.sidebar}>
-    {children}
+    <button></button>
   </div>
 )
 

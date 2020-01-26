@@ -1,7 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i|Nunito:300,300i&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i|Nunito:300,300i&display=swap");
 @import "./main.scss";
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
@@ -10,6 +12,10 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%;
+
+  @media only screen and (max-width: $bp-largest) {
+    font-size: 50%;
+  }
 }
 
 body {

@@ -1,22 +1,26 @@
-import React from 'react'
-import styles from './colHomes.module.scss'
-import Img from 'gatsby-image'
+import React from "react"
+import styles from "./colHomes.module.scss"
+import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
 
 const Homes = () => {
   const data = useStaticQuery(graphql`
-  query HomesImages {
-    allFile(filter: {relativeDirectory: {eq: "homes"}}, sort: {fields: childImageSharp___fluid___originalName}) {
-      nodes {
-        childImageSharp {
-          id
-          fluid {
-            ...GatsbyImageSharpFluid
+    query HomesImages {
+      allFile(
+        filter: { relativeDirectory: { eq: "homes" } }
+        sort: { fields: childImageSharp___fluid___originalName }
+      ) {
+        nodes {
+          childImageSharp {
+            id
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
           }
         }
       }
     }
-  }`)
+  `)
 
   const houseData = [
     {
@@ -25,7 +29,7 @@ const Homes = () => {
       location: "USA",
       rooms: 5,
       area: 325,
-      price: "1,200,000"
+      price: "1,200,000",
     },
     {
       alt: "House 2",
@@ -33,7 +37,7 @@ const Homes = () => {
       location: "Canada",
       rooms: 6,
       area: 455,
-      price: "2,750,000"
+      price: "2,750,000",
     },
     {
       alt: "House 3",
@@ -41,7 +45,7 @@ const Homes = () => {
       location: "UK",
       rooms: 4,
       area: 250,
-      price: "850,000"
+      price: "850,000",
     },
     {
       alt: "House 4",
@@ -49,7 +53,7 @@ const Homes = () => {
       location: "Portugal",
       rooms: 6,
       area: 480,
-      price: "1,950,000"
+      price: "1,950,000",
     },
     {
       alt: "House 5",
@@ -57,53 +61,57 @@ const Homes = () => {
       location: "Germany",
       rooms: 18,
       area: 4230,
-      price: "9,500,000"
+      price: "9,500,000",
     },
     {
       alt: "House 6",
-      name: "Modern Familiy Apartment",
+      name: "Modern Family Apartment",
       location: "Italy",
       rooms: 3,
       area: 180,
-      price: "600,000"
+      price: "600,000",
     },
   ]
 
-  for(let i = 0; i < houseData.length; i++) {
+  for (let i = 0; i < houseData.length; i++) {
     houseData[i].key = data.allFile.nodes[i].childImageSharp.id
     houseData[i].imageFluid = data.allFile.nodes[i].childImageSharp.fluid
   }
-
-  console.log(data)
 
   return (
     <section className={styles.homes}>
       {houseData.map(house => (
         <div className={styles.home} key={house.key}>
-          <Img fluid={house.imageFluid} />
-          <svg>
+          <Img
+            fluid={house.imageFluid}
+            className={styles.homeImage}
+            alt={house.alt}
+          />
+          <svg className={styles.homeImageIcon}>
             <use xlinkHref={`#sprite_icon-heart-full`} />
           </svg>
           <h5>{house.name}</h5>
-          <div className={styles.details}>
+          <div className={`${styles.details} ${styles.detailsLocation}`}>
             <svg>
               <use xlinkHref={`#sprite_icon-map-pin`} />
             </svg>
             <p>{house.location}</p>
           </div>
-          <div className={styles.details}>
+          <div className={`${styles.details} ${styles.detailsRooms}`}>
             <svg>
               <use xlinkHref={`#sprite_icon-profile-male`} />
             </svg>
             <p>{house.rooms} rooms</p>
           </div>
-          <div className={styles.details}>
+          <div className={`${styles.details} ${styles.detailsArea}`}>
             <svg>
               <use xlinkHref={`#sprite_icon-expand`} />
             </svg>
-            <p>{house.area}m<sup>2</sup></p>
+            <p>
+              {house.area}m<sup>2</sup>
+            </p>
           </div>
-          <div className={styles.details}>
+          <div className={`${styles.details} ${styles.detailsPrice}`}>
             <svg>
               <use xlinkHref={`#sprite_icon-key`} />
             </svg>

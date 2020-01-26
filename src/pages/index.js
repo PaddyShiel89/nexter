@@ -13,25 +13,13 @@ import ColSidebar from "../components/colSidebar/colSidebar"
 import ColStory, { StoryPictures } from "../components/colStory/colStory"
 import "../images/sprite.svg"
 
-// import { useStaticQuery, graphql } from "gatsby"
-
-const IndexPage = props => {
-  // const data = useStaticQuery(graphql`
-  //   query SiteTitleQuery {
-  //     site {
-  //       siteMetadata {
-  //         title
-  //       }
-  //     }
-  //   }
-  // `)
-
+const IndexPage = () => {
   return (
     <>
       <SEO title="Home" />
       <MainContainer>
-        <ColSidebar>Sidebar</ColSidebar>
-        <ColHeader>Header</ColHeader>
+        <ColSidebar />
+        <ColHeader />
         <ColRealtors>Top 3 realtors</ColRealtors>
         <ColFeatures>
           <Feature heading="World's best luxury homes" icon="icon-global">
@@ -75,13 +63,16 @@ const IndexPage = props => {
         <ColStory type="content">
           <h3>Happy Customers</h3>
           <h2>&ldquo;The best decision of our lives&rdquo;</h2>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur distinctio necessitatibus pariatur voluptatibus. Quidem consequatur harum volupta!</p>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur
+            distinctio necessitatibus pariatur voluptatibus. Quidem consequatur
+            harum volupta!
+          </p>
           <button className="btn">Find your own home</button>
         </ColStory>
-        <ColHomes>
-        </ColHomes>
-        <ColGallery>Gallery</ColGallery>
-        <ColFooter>Footer</ColFooter>
+        <ColHomes />
+        <ColGallery />
+        <ColFooter />
       </MainContainer>
     </>
   )

@@ -3,13 +3,20 @@
   font-weight: 400;
 }
 
+@mixin heading-1 {
+  @include heading;
+  font-size: 4.5rem;
+  color: $color-grey-light-1;
+  line-height: 1;
+}
+
 @mixin heading-2($lightness) {
   @include heading;
   font-size: 4rem;
   font-style: italic;
   line-height: 1;
 
-  @if($lightness == light) {
+  @if ($lightness == light) {
     color: $color-grey-light-1;
   } @else if ($lightness == dark) {
     color: $color-grey-dark-1;
@@ -27,7 +34,7 @@
   @include heading;
   font-size: 1.9rem;
 
-  @if($lightness == light) {
+  @if ($lightness == light) {
     color: $color-grey-light-1;
   } @else if ($lightness == dark) {
     color: $color-grey-dark-1;
@@ -44,7 +51,7 @@
   text-transform: uppercase;
   padding: 1.8rem 3rem;
   cursor: pointer;
-  transition: all .2s;
+  transition: all 0.2s;
 
   &:hover {
     background-color: $color-primary-dark;

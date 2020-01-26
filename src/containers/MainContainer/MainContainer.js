@@ -1,11 +1,9 @@
-import React, { Component } from 'react'
-import styles from './MainContainer.module.scss'
+import React, { Component } from "react"
+import styles from "./MainContainer.module.scss"
 
 class MainContainer extends Component {
   render() {
-    return (
-      <main className={styles.MainContainer}>{this.props.children}</main>
-    )
+    return <main className={styles.MainContainer}>{this.props.children}</main>
   }
 }
 

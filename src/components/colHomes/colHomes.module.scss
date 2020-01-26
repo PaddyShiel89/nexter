@@ -12,24 +12,69 @@
 .home {
   background-color: $color-grey-light-1;
 
-  svg {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 3.5rem;
 
+  // Shared between image and details icons
+  svg {
+    fill: $color-primary;
   }
 
   h5 {
+    grid-row: 1 / 2;
+    grid-column: 1 / -1;
+    z-index: $z-image-title;
 
+    justify-self: center;
+    align-self: flex-end;
+    width: 80%;
+    font-family: $font-display;
+    font-size: 1.6rem;
+    text-align: center;
+    padding: 1.25rem;
+    background-color: $color-secondary;
+    color: #fff;
+    font-weight: 400;
+    transform: translateY(50%);
   }
 
-  .details {
+  button {
+    @include btn;
+    grid-column: 1 / -1;
+  }
+}
 
-    svg {
-      fill: $color-primary;
-      height: 2rem;
-      width: 2rem;
-    }
+.homeImage {
+  width: 100%;
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+}
 
-    p {
+// Image icon
+.homeImageIcon {
+  @include icon-size(2.5rem);
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+  z-index: $z-image-icon;
+  justify-self: end;
+  margin: 1rem;
+}
 
-    }
+.details {
+  font-size: 1.5rem;
+  margin-left: 2rem;
+
+  display: flex;
+  align-items: center;
+
+  &Location,
+  &Rooms {
+    margin-top: 2.5rem;
+  }
+
+  svg {
+    @include icon-size(2rem);
+    margin-right: 1rem;
   }
 }
