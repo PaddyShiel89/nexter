@@ -89,9 +89,11 @@ const Homes = () => {
 
 export default Homes
 
-export const Home = ({house}) => {
+export const Home = ({ house }) => {
   const [iconSelected, toggleIcon] = useState(false)
-  const iconHelpText = `Click to ${iconSelected ? 'unfavourite' : 'favourite' } the property`
+  const iconHelpText = `Click to ${
+    iconSelected ? "unfavourite" : "favourite"
+  } this property`
 
   return (
     <div className={styles.home}>
@@ -100,11 +102,20 @@ export const Home = ({house}) => {
         className={styles.homeImage}
         alt={house.alt}
       />
-      <button title={iconHelpText} className={iconSelected ? `${styles.homeImageIcon} ${styles.homeImageIconSelected}` : styles.homeImageIcon} onClick={() => toggleIcon(iconSelected ? false : true)}>
+      <button
+        aria-label={`${house.key}Helper`}
+        className={
+          iconSelected
+            ? `${styles.homeImageIcon} ${styles.homeImageIconSelected}`
+            : styles.homeImageIcon
+        }
+        onClick={() => toggleIcon(iconSelected ? false : true)}
+        title={iconHelpText}
+      >
         <svg>
           <use xlinkHref={`#sprite_icon-heart-full`} />
         </svg>
-        <span>{iconHelpText}</span>
+        <span id={`${house.key}Helper`}>{iconHelpText}</span>
       </button>
       <h5>{house.name}</h5>
       <div className={`${styles.details} ${styles.detailsLocation}`}>

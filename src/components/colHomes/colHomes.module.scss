@@ -56,8 +56,7 @@
   margin: 1rem;
 
   background-color: transparent;
-  color: #fff;
-
+  color: lighten($color-primary, 35%);
   transition: all .2s;
   animation: shrinkswell .35s ease-in-out;
 
@@ -73,7 +72,7 @@
   svg {
     @include icon-size(2.5rem);
     fill: currentColor;
-    stroke: $color-primary-dark;
+    stroke: $color-primary;
     stroke-width: 2px;
   }
 
