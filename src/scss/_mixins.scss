@@ -1,3 +1,11 @@
+// BREAKPOINTS
+@mixin media-breakpoint-up($breakpoint) {
+  @media only screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+// HEADINGS
 @mixin heading {
   font-family: $font-display;
   font-weight: 400;
@@ -41,6 +49,7 @@
   }
 }
 
+// BUTTONS
 @mixin btn {
   background-color: $color-primary;
   color: #fff;
@@ -56,4 +65,16 @@
   &:hover {
     background-color: $color-primary-dark;
   }
+}
+
+// ICONS
+@mixin svg-icon($size) {
+  fill: $color-primary;
+  height: $size;
+  width: $size;
+}
+
+@mixin icon-size($size) {
+  height: $size;
+  width: $size;
 }
