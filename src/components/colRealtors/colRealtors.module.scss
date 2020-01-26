@@ -1,8 +1,8 @@
 @import "../../scss/main.scss";
 
 .realtors {
+  grid-column: $full-cols;
   background-color: $color-secondary;
-  grid-column: col-start 7 / full-end;
   padding: 3rem;
 
   display: grid;
@@ -11,12 +11,12 @@
   justify-items: center;
   row-gap: 2rem;
 
-  h3 {
-    @include heading-3;
+  @include media-breakpoint-up($bp-medium) {
+    grid-column: col-start 7 / full-end;
   }
 
-  @media only screen and (max-width: $bp-medium) {
-    grid-column: full-start / full-end;
+  h3 {
+    @include heading-3;
   }
 }
 
@@ -27,11 +27,11 @@
   row-gap: 5vh;
   align-items: center;
 
-  @media only screen and (max-width: $bp-medium) {
+  @include media-breakpoint-up($bp-small) {
     grid-template-columns: repeat(3, min-content max-content);
   }
 
-  @media only screen and (max-width: $bp-small) {
+  @include media-breakpoint-up($bp-medium) {
     grid-template-columns: min-content max-content;
   }
 }

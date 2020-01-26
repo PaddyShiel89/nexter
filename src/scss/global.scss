@@ -11,10 +11,10 @@
 
 html {
   box-sizing: border-box;
-  font-size: 62.5%;
+  font-size: 50%;
 
-  @media only screen and (max-width: $bp-largest) {
-    font-size: 50%;
+  @include media-breakpoint-up($bp-largest) {
+    font-size: 62.5%;
   }
 }
 

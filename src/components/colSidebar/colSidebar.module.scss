@@ -2,24 +2,25 @@
 
 .sidebar {
   background-color: $color-primary;
-  grid-column: $sidebar-cols;
-  grid-row: 1 / -1;
 
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  grid-column: $full-cols;
+  grid-row: 1 / 2;
+  align-items: center;
 
-  @media only screen and (max-width: $bp-large) {
-    grid-column: 1 / -1;
-    grid-row: 1 / 2;
-    justify-content: flex-end;
-    align-items: center;
+  @include media-breakpoint-up($bp-large) {
+    justify-content: center;
+    grid-column: $sidebar-cols;
+    grid-row: 1 / -1;
+    align-items: initial;
   }
 
   button {
     border: none;
     border-radius: 0;
 
-    margin-top: 4rem;
+    margin-right: 3rem;
 
     &,
     &::before,
@@ -36,23 +37,23 @@
     }
 
     &::before {
-      transform: translateY(-1.5rem);
+      transform: translateY(-1.2rem);
     }
 
     &::after {
-      transform: translateY(1.3rem);
+      transform: translateY(1rem);
     }
 
-    @media only screen and (max-width: $bp-large) {
-      margin-top: 0;
-      margin-right: 3rem;
+    @include media-breakpoint-up($bp-large) {
+      margin-right: 0;
+      margin-top: 4rem;
 
       &::before {
-        transform: translateY(-1.2rem);
+        transform: translateY(-1.5rem);
       }
 
       &::after {
-        transform: translateY(1rem);
+        transform: translateY(1.3rem);
       }
     }
   }

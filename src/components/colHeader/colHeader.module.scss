@@ -1,15 +1,23 @@
 @import "../../scss/main.scss";
 
 .header {
+  grid-column: $full-cols;
   background-color: $color-grey-dark-1;
-  grid-column: full-start / col-end 6;
-  padding: 4rem 8rem 8rem;
+  padding: 5rem;
 
   display: grid;
   grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr;
   grid-template-columns: minmax(min-content, max-content);
   row-gap: 1.5rem;
   justify-content: center;
+
+  @include media-breakpoint-up($bp-small) {
+    padding: 4rem 8rem 8rem;
+  }
+
+  @include media-breakpoint-up($bp-medium) {
+    grid-column: full-start / col-end 6;
+  }
 
   h3 {
     @include heading-3;
@@ -23,14 +31,6 @@
     @include btn;
     align-self: start;
     justify-self: start;
-  }
-
-  @media only screen and (max-width: $bp-medium) {
-    grid-column: full-start / full-end;
-  }
-
-  @media only screen and (max-width: $bp-small) {
-    padding: 5rem;
   }
 }
 
@@ -59,12 +59,6 @@
       height: 1px;
       display: block;
       background-color: currentColor;
-    }
-
-    &::before {
-    }
-
-    &::after {
     }
   }
 
