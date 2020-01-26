@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 import SEO from "../components/seo"
 
 import "../scss/global.scss"
@@ -68,7 +69,7 @@ const IndexPage = () => {
             distinctio necessitatibus pariatur voluptatibus. Quidem consequatur
             harum volupta!
           </p>
-          <button className="btn">Find your own home</button>
+          <Link to={'/#houses'} className="btn">Find your own home</Link>
         </ColStory>
         <ColHomes />
         <ColGallery />

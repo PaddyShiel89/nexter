@@ -79,7 +79,7 @@ const Homes = () => {
   }
 
   return (
-    <section className={styles.homes}>
+    <section className={styles.homes} id={"houses"}>
       {houseData.map(house => (
         <div className={styles.home} key={house.key}>
           <Img

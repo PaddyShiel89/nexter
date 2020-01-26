@@ -27,8 +27,9 @@
     @include heading-1;
   }
 
-  button {
+  a {
     @include btn;
+    text-decoration: none;
     align-self: start;
     justify-self: start;
   }

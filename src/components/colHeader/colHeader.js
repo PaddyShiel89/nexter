@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import BackgroundImage from "gatsby-background-image"
 import styles from "./colHeader.module.scss"
@@ -72,7 +72,7 @@ const Header = () => {
       />
       <h3>Your own home:</h3>
       <h1>The ultimate personal freedom</h1>
-      <button>View our properties</button>
+      <Link to='/#houses'>View our properties</Link>
       <div className={styles.asSeenOn__text}>As seen on</div>
       <div className={styles.asSeenOn}>
         <Img

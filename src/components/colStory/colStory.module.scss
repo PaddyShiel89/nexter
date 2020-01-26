@@ -84,8 +84,9 @@
       margin-bottom: 2rem;
     }
 
-    button {
+    a {
       @include btn;
+      text-decoration: none;
     }
 
     p {
