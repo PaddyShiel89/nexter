@@ -28,6 +28,12 @@ $bp-large: 62.5em; // 1000px
 $bp-medium: 50em; // 800px
 $bp-small: 37.5em; // 600px
 
+$bp-navbar: $bp-large; // Breakpoint for navbar moving from top to side
+
+// ELEMENT HEIGHTS
+$navbar-height: 6rem;
+
 // Z-INDECIES
 $z-image-icon: 2;
 $z-image-title: 2;
+$z-navbar: 10;
