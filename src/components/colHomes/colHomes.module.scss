@@ -20,11 +20,6 @@
   grid-template-columns: repeat(2, 1fr);
   row-gap: 3.5rem;
 
-  // Shared between image and details icons
-  svg {
-    fill: $color-primary;
-  }
-
   h5 {
     grid-row: 1 / 2;
     grid-column: 1 / -1;
@@ -42,11 +37,6 @@
     font-weight: 400;
     transform: translateY(50%);
   }
-
-  button {
-    @include btn;
-    grid-column: 1 / -1;
-  }
 }
 
 .homeImage {
@@ -57,12 +47,40 @@
 
 // Image icon
 .homeImageIcon {
-  @include icon-size(2.5rem);
+  @include btn-reset;
   grid-row: 1 / 2;
   grid-column: 2 / 3;
   z-index: $z-image-icon;
   justify-self: end;
+  align-self: flex-start;
   margin: 1rem;
+
+  background-color: transparent;
+  color: #fff;
+
+  transition: all .2s;
+  animation: shrinkswell .35s ease-in-out;
+
+  &:hover {
+    color: $color-primary;
+  }
+
+  &Selected {
+    color: $color-primary;
+    animation: swellshrink .35s ease-in-out;
+  }
+
+  svg {
+    @include icon-size(2.5rem);
+    fill: currentColor;
+    stroke: $color-primary-dark;
+    stroke-width: 2px;
+  }
+
+  // Screenreader text
+  span {
+    @include sr-only;
+  }
 }
 
 .details {
@@ -79,6 +97,12 @@
 
   svg {
     @include icon-size(2rem);
+    fill: $color-primary;
     margin-right: 1rem;
   }
+}
+
+.contactButton {
+  @include btn;
+  grid-column: 1 / -1;
 }

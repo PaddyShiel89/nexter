@@ -50,16 +50,20 @@
 }
 
 // BUTTONS
-@mixin btn {
-  background-color: $color-primary;
-  color: #fff;
+@mixin btn-reset {
+  cursor: pointer;
   border: none;
   border-radius: 0;
+}
+
+@mixin btn {
+  @include btn-reset;
+  background-color: $color-primary;
+  color: #fff;
   font-family: $font-display;
   font-size: 1.5rem;
   text-transform: uppercase;
   padding: 1.8rem 3rem;
-  cursor: pointer;
   transition: all 0.2s;
 
   &:hover {
@@ -77,4 +81,18 @@
 @mixin icon-size($size) {
   height: $size;
   width: $size;
+}
+
+// ACCESSIBILITY
+// Screenreader only mixin from Bootstrap 4.4
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

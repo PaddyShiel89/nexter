@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import styles from "./colHomes.module.scss"
 import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
@@ -81,47 +81,59 @@ const Homes = () => {
   return (
     <section className={styles.homes} id={"houses"}>
       {houseData.map(house => (
-        <div className={styles.home} key={house.key}>
-          <Img
-            fluid={house.imageFluid}
-            className={styles.homeImage}
-            alt={house.alt}
-          />
-          <svg className={styles.homeImageIcon}>
-            <use xlinkHref={`#sprite_icon-heart-full`} />
-          </svg>
-          <h5>{house.name}</h5>
-          <div className={`${styles.details} ${styles.detailsLocation}`}>
-            <svg>
-              <use xlinkHref={`#sprite_icon-map-pin`} />
-            </svg>
-            <p>{house.location}</p>
-          </div>
-          <div className={`${styles.details} ${styles.detailsRooms}`}>
-            <svg>
-              <use xlinkHref={`#sprite_icon-profile-male`} />
-            </svg>
-            <p>{house.rooms} rooms</p>
-          </div>
-          <div className={`${styles.details} ${styles.detailsArea}`}>
-            <svg>
-              <use xlinkHref={`#sprite_icon-expand`} />
-            </svg>
-            <p>
-              {house.area}m<sup>2</sup>
-            </p>
-          </div>
-          <div className={`${styles.details} ${styles.detailsPrice}`}>
-            <svg>
-              <use xlinkHref={`#sprite_icon-key`} />
-            </svg>
-            <p>${house.price}</p>
-          </div>
-          <button>Contact realtor</button>
-        </div>
+        <Home house={house} key={house.key} />
       ))}
     </section>
   )
 }
 
 export default Homes
+
+export const Home = ({house}) => {
+  const [iconSelected, toggleIcon] = useState(false)
+  const iconHelpText = `Click to ${iconSelected ? 'unfavourite' : 'favourite' } the property`
+
+  return (
+    <div className={styles.home}>
+      <Img
+        fluid={house.imageFluid}
+        className={styles.homeImage}
+        alt={house.alt}
+      />
+      <button title={iconHelpText} className={iconSelected ? `${styles.homeImageIcon} ${styles.homeImageIconSelected}` : styles.homeImageIcon} onClick={() => toggleIcon(iconSelected ? false : true)}>
+        <svg>
+          <use xlinkHref={`#sprite_icon-heart-full`} />
+        </svg>
+        <span>{iconHelpText}</span>
+      </button>
+      <h5>{house.name}</h5>
+      <div className={`${styles.details} ${styles.detailsLocation}`}>
+        <svg>
+          <use xlinkHref={`#sprite_icon-map-pin`} />
+        </svg>
+        <p>{house.location}</p>
+      </div>
+      <div className={`${styles.details} ${styles.detailsRooms}`}>
+        <svg>
+          <use xlinkHref={`#sprite_icon-profile-male`} />
+        </svg>
+        <p>{house.rooms} rooms</p>
+      </div>
+      <div className={`${styles.details} ${styles.detailsArea}`}>
+        <svg>
+          <use xlinkHref={`#sprite_icon-expand`} />
+        </svg>
+        <p>
+          {house.area}m<sup>2</sup>
+        </p>
+      </div>
+      <div className={`${styles.details} ${styles.detailsPrice}`}>
+        <svg>
+          <use xlinkHref={`#sprite_icon-key`} />
+        </svg>
+        <p>${house.price}</p>
+      </div>
+      <button className={styles.contactButton}>Contact realtor</button>
+    </div>
+  )
+}
