@@ -3,10 +3,7 @@
 .footer {
   background-color: $color-secondary;
   grid-column: $full-cols;
-  padding: 8rem;
-
-  nav {
-  }
+  padding: 6rem;
 
   ul {
     list-style: none;
@@ -15,9 +12,6 @@
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     gap: 2rem;
     align-items: center;
-  }
-
-  li {
   }
 
   button {

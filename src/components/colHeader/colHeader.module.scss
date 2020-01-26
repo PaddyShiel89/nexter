@@ -3,7 +3,7 @@
 .header {
   grid-column: $full-cols;
   background-color: $color-grey-dark-1;
-  padding: 5rem;
+  padding: 6rem;
 
   display: grid;
   grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr;

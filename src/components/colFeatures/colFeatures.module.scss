@@ -2,12 +2,16 @@
 
 .features {
   grid-column: $center-cols;
-  margin: 15rem 0;
+  margin: 6rem 0;
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-gap: 6rem;
   align-items: start;
+
+  @include media-breakpoint-up($bp-medium) {
+    margin: 15rem 0;
+  }
 }
 
 .feature {
