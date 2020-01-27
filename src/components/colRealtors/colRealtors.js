@@ -2,6 +2,7 @@ import React, { Fragment } from "react"
 import styles from "./colRealtors.module.scss"
 import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
+import { realtors } from '../../rawData'
 
 const Realtors = () => {
   const data = useStaticQuery(graphql`
@@ -22,20 +23,7 @@ const Realtors = () => {
     }
   `)
 
-  const realtorData = [
-    {
-      name: "Erik Feinman",
-      sales: 245,
-    },
-    {
-      name: "Kim Brown",
-      sales: 212,
-    },
-    {
-      name: "Toby Ramsey",
-      sales: 198,
-    },
-  ]
+  const realtorData = [...realtors]
 
   for (let i = 0; i < realtorData.length; i++) {
     realtorData[i].key = data.allFile.nodes[i].childImageSharp.id
