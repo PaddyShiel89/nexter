@@ -76,3 +76,28 @@
     }
   }
 }
+
+
+// ==================================================
+
+// MODAL
+.modal {
+  display: block;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 2rem;
+
+  width: calc(100vw - #{$modal-gutter *2});
+  max-width: 40rem;
+
+  @include media-breakpoint-up($bp-small) {
+    max-width: 50rem;
+  }
+
+  @include media-breakpoint-up($bp-medium) {
+    max-width: 70rem;
+  }
+
+  @include media-breakpoint-up($bp-large) {
+    max-width: 90rem;
+  }
+}
