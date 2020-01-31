@@ -16,7 +16,12 @@
 }
 
 .galleryImage {
-  grid-column: auto / span 4;
+  grid-column: 1 / -1;
+  
+  @include media-breakpoint-up($bp-smallest) {
+    grid-column: auto / span 4;
+  }
+
   @include media-breakpoint-up($bp-large) {
     &:nth-child(1) {
       grid-row: 1 / span 2;

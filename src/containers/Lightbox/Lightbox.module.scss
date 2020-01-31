@@ -1,4 +1,4 @@
-@import '../../scss/main.scss';
+@import "../../scss/main.scss";
 
 .Gallery {
   background-color: $color-grey-light-1;
@@ -6,9 +6,13 @@
 
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(7, 20vw);
+  grid-template-rows: repeat(14, 45vw);
   gap: 1.5rem;
   padding: 6rem;
+
+  @include media-breakpoint-up($bp-smallest) {
+    grid-template-rows: repeat(7, 20vw);
+  }
 
   @include media-breakpoint-up($bp-large) {
     grid-template-rows: repeat(7, 5vw);
@@ -16,7 +20,13 @@
 }
 
 .GalleryLink {
-  grid-column: auto / span 4;
+  position: relative;
+  grid-column: 1 / -1;
+
+  @include media-breakpoint-up($bp-smallest) {
+    grid-column: auto / span 4;
+  }
+
   @include media-breakpoint-up($bp-large) {
     &:nth-child(1) {
       grid-row: 1 / span 2;
@@ -75,6 +85,23 @@
       grid-column: 8 / 9;
     }
   }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(#000, .4);
+    opacity: 0;
+
+    transition: opacity .2s;
+  }
+
+  &:hover::after, &:focus::after {
+    opacity: 1;
+  }
 }
 
 .GalleryImage {
@@ -82,12 +109,13 @@
   height: 100%;
 }
 
-.modal {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(7, 1fr);
+// ==================================================
 
-  width: calc(100vw - #{$modal-gutter *2});
+// MODAL
+.modal {
+  position: relative;
+  display: block;
+  width: calc(100vw - #{$modal-gutter * 2});
   max-width: 40rem;
 
   @include media-breakpoint-up($bp-small) {
@@ -104,39 +132,52 @@
 
   button {
     @include btn-reset;
-    grid-row: 2 / -2;
-    z-index: 1;
-    background: #000;
-    background-color: rgba(#000, .4);
-    color: #fff;
-    font-size: 3rem;
+    position: absolute;
 
-    transition: background-color .2s;
+    color: #fff;
+    font-family: $font-display;
+    opacity: 40%;
+    transition: opacity 0.2s;
 
     &:hover {
-      background: #333;
-      background-color: rgba(#000, .75);
+      opacity: 75%;
     }
-
-    @include media-breakpoint-up($bp-medium) {
-      font-size: 4.8rem;
-    }
-
+  
     span {
       @include sr-only;
     }
   }
 }
 
-.modalImage {
-  grid-row: 1 / -1;
-  grid-column: 1 / -1;
+.modalButtonClose {
+  top: 0;
+  right: 0;
+  background: transparent;
+  font-size: 2rem;
+  padding: 1.5rem;
+
+  @include media-breakpoint-up($bp-large) {
+    font-size: 3rem;
+  }
+}
+
+.modalButtonPrev,
+.modalButtonNext {
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  background: #000;
+  padding: 3rem;
+
+  @include media-breakpoint-up($bp-medium) {
+    font-size: 4.8rem;
+  }
 }
 
 .modalButtonPrev {
-  grid-column: 1 / 2;
+  left: 0;
 }
 
 .modalButtonNext {
-  grid-column: -1 / -2;
+  right: 0;
 }
