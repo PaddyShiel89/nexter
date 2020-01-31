@@ -25,45 +25,51 @@
   }
 
   button {
-    border: none;
-    border-radius: 0;
-
+    @include btn-reset;
     margin-right: 3rem;
-
-    &,
-    &::before,
-    &::after {
-      background-color: #fff;
-      height: 2px;
-      width: 4.5rem;
-    }
-
-    &::before,
-    &::after {
-      content: "";
-      display: block;
-    }
-
-    &::before {
-      transform: translateY(-1.2rem);
-    }
-
-    &::after {
-      transform: translateY(1rem);
-    }
-
+    padding: 1.2rem 0 1rem;
+    background-color: transparent;
+      
     @include media-breakpoint-up($bp-navbar) {
       position: fixed;
       margin-right: 0;
       margin-top: 4rem;
+      padding: 1.5rem 0 1.3rem;
+    }
+  }
+}
 
-      &::before {
-        transform: translateY(-1.5rem);
-      }
+.navIcon {
+  &,
+  &::before,
+  &::after {
+    background-color: #fff;
+    height: 2px;
+    width: 4.5rem;
+    z-index: 20;
+  }
 
-      &::after {
-        transform: translateY(1.3rem);
-      }
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+  }
+
+  &::before {
+    transform: translateY(-1.2rem);
+  }
+
+  &::after {
+    transform: translateY(1rem);
+  }
+
+  @include media-breakpoint-up($bp-navbar) {
+    &::before {
+      transform: translateY(-1.5rem);
+    }
+
+    &::after {
+      transform: translateY(1.3rem);
     }
   }
 }

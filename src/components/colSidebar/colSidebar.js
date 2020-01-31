@@ -3,7 +3,9 @@ import styles from "./colSidebar.module.scss"
 
 const sidebar = () => (
   <div className={styles.sidebar}>
-    <button></button>
+    <button>
+      <div className={styles.navIcon}></div>
+    </button>
   </div>
 )
 
