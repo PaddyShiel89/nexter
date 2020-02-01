@@ -72,7 +72,7 @@ const Header = () => {
       />
       <h3>Your own home:</h3>
       <h1>The ultimate personal freedom</h1>
-      <Link to='/#houses'>View our properties</Link>
+      <Link to="/#houses">View our properties</Link>
       <div className={styles.asSeenOn__text}>As seen on</div>
       <div className={styles.asSeenOn}>
         <Img
@@ -95,6 +95,12 @@ const Header = () => {
           fixed={data.logoBi.childImageSharp.fixed}
           alt="Business Insider logo"
         />
+      </div>
+      <div className={styles.scrollDown}>
+        <div className={styles.scrollDownIcon} />
+        <div className={styles.scrollDownIcon} />
+        <div className={styles.scrollDownIcon} />
+        <span>Scroll down</span>
       </div>
     </BackgroundImage>
   )
