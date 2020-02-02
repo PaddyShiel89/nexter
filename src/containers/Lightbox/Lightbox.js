@@ -64,7 +64,7 @@ class Lightbox extends Component {
 
     return (
       <>
-        <section className={styles.Gallery}>
+        <section className={styles.Gallery} id={this.props.id}>
           {this.props.images.map((img, i) => (
             <Link
               className={styles.GalleryLink}

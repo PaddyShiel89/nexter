@@ -22,7 +22,7 @@ const IndexPage = () => {
         <ColSidebar />
         <ColHeader />
         <ColRealtors>Top 3 realtors</ColRealtors>
-        <ColFeatures>
+        <ColFeatures id={'features'}>
           <Feature heading="World's best luxury homes" icon="icon-global">
             <p>
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur
@@ -60,7 +60,7 @@ const IndexPage = () => {
             </p>
           </Feature>
         </ColFeatures>
-        <StoryPictures />
+        <StoryPictures id={'story'} />
         <ColStory type="content">
           <h3>Happy Customers</h3>
           <h2>&ldquo;The best decision of our lives&rdquo;</h2>
@@ -71,8 +71,8 @@ const IndexPage = () => {
           </p>
           <Link to={'/#houses'} className="btn">Find your own home</Link>
         </ColStory>
-        <ColHomes />
-        <ColGallery />
+        <ColHomes id={"houses"} />
+        <ColGallery id={'gallery'} />
         <ColFooter />
       </MainContainer>
     </>

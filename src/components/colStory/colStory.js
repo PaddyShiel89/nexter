@@ -16,7 +16,7 @@ const story = ({ children, type }) => {
 
 export default story
 
-export const StoryPictures = () => {
+export const StoryPictures = ({ id }) => {
   const data = useStaticQuery(graphql`
     query StoryImages {
       background: file(relativePath: { eq: "story/back.jpg" }) {
@@ -54,6 +54,7 @@ export const StoryPictures = () => {
     <BackgroundImage
       className={styles.story__pictures}
       fluid={backgroundImageStack}
+      id={id}
     >
       <Img
         fluid={data.image1.childImageSharp.fluid}

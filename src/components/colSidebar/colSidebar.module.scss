@@ -4,15 +4,15 @@
   background-color: $color-primary;
 
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
-  grid-column: $full-cols;
-  grid-row: 1 / 2;
   align-items: center;
 
   position: fixed;
   top: 0;
   width: 100%;
-  height: $navbar-height;
+  // height: $navbar-height;
+  padding: 1.8rem 0 1.8rem;
   z-index: $z-navbar;
 
   @include media-breakpoint-up($bp-navbar) {
@@ -71,5 +71,47 @@
     &::after {
       transform: translateY(1.3rem);
     }
+  }
+}
+
+.collapse {
+  width: 100%;
+
+  nav {
+    padding-top: 1.8rem;
+    font-family: $font-display;
+    font-size: 2.4rem;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  a {
+    display: block;
+    padding: 1rem;
+    width: 100%;
+
+    color: #fff;
+    background-color: $color-primary-dark;
+    text-decoration: none;
+
+    &:hover, &:focus {
+      color: #000;
+      background-color: $color-primary-light;
+    }
+  }
+
+  @include media-breakpoint-up($bp-navbar) {
+    position: fixed;
+    left: 8rem;
+    top: 0;
+    width: 40rem;
+    background-color: $color-primary-dark;
+    height: 100vh;
+    padding-top: 3rem;
   }
 }

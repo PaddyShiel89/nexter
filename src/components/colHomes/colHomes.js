@@ -9,7 +9,7 @@ import Modal from '../modal/Modal'
 const houseData = [...houses]
 const realtorData = [...realtors]
 
-const Homes = () => {
+const Homes = props => {
   const data = useStaticQuery(graphql`
     query HomesImages {
       houses: allFile(
@@ -53,7 +53,7 @@ const Homes = () => {
 
 
   return (
-    <section className={styles.homes} id={"houses"}>
+    <section className={styles.homes} id={props.id}>
       {houseData.map(house => (
         <Home house={house} key={house.key} />
       ))}

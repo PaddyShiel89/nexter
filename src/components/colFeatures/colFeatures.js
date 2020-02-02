@@ -1,8 +1,8 @@
 import React from "react"
 import styles from "./colFeatures.module.scss"
 
-const features = ({ children }) => (
-  <section className={styles.features}>{children}</section>
+const features = ({ children, id }) => (
+  <section className={styles.features} id={id}>{children}</section>
 )
 
 export default features

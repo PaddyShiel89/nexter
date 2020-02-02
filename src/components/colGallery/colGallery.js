@@ -2,7 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Lightbox from "../../containers/Lightbox/Lightbox"
 
-const Gallery = () => {
+const Gallery = ({ id }) => {
   const data = useStaticQuery(graphql`
     query GalleryImages {
       allFile(
@@ -22,7 +22,7 @@ const Gallery = () => {
     }
   `)
 
-  return <Lightbox images={data.allFile.nodes} />
+  return <Lightbox images={data.allFile.nodes} id={id} />
 }
 
 export default Gallery
