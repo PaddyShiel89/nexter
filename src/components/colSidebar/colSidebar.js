@@ -4,7 +4,7 @@ import styles from "./colSidebar.module.scss"
 
 const Sidebar = () => {
   const [open, setOpen] = useState(false)
-  const openStyle = open ? { display: "none" } : {}
+  const openStyle = open ? {} : { display: "none" }
   const navId = "navigation"
 
   return (
