@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 import styles from "./MainContainer.module.scss"
+import ColSidebar from "../../components/colSidebar/colSidebar"
+import ColFooter from "../../components/colFooter/colFooter"
 
 if (typeof window !== "undefined") {
   // eslint-disable-next-line global-require
@@ -8,7 +10,13 @@ if (typeof window !== "undefined") {
 
 class MainContainer extends Component {
   render() {
-    return <main className={styles.MainContainer}>{this.props.children}</main>
+    return (
+      <div className={styles.MainContainer}>
+        <ColSidebar />
+        <main className={this.props.containerClass}>{this.props.children}</main>
+        <ColFooter />
+      </div>
+    )
   }
 }
 

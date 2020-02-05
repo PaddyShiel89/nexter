@@ -3,14 +3,13 @@ import { Link } from "gatsby"
 import SEO from "../components/seo"
 
 import "../scss/global.scss"
+import styles from './index.module.scss'
 import MainContainer from "../containers/MainContainer/MainContainer"
 import ColFeatures, { Feature } from "../components/colFeatures/colFeatures"
-import ColFooter from "../components/colFooter/colFooter"
 import ColGallery from "../components/colGallery/colGallery"
 import ColHeader from "../components/colHeader/colHeader"
 import ColHomes from "../components/colHomes/colHomes"
 import ColRealtors from "../components/colRealtors/colRealtors"
-import ColSidebar from "../components/colSidebar/colSidebar"
 import ColStory, { StoryPictures } from "../components/colStory/colStory"
 import "../images/sprite.svg"
 
@@ -18,8 +17,7 @@ const IndexPage = () => {
   return (
     <>
       <SEO title="Home" />
-      <MainContainer>
-        <ColSidebar />
+      <MainContainer containerClass={styles.container}>
         <ColHeader />
         <ColRealtors>Top 3 realtors</ColRealtors>
         <ColFeatures id={'features'}>
@@ -73,7 +71,6 @@ const IndexPage = () => {
         </ColStory>
         <ColHomes id={"houses"} />
         <ColGallery id={'gallery'} />
-        <ColFooter />
       </MainContainer>
     </>
   )

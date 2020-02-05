@@ -24,7 +24,7 @@
   }
 
   h1 {
-    @include heading-1;
+    @include heading-1(light);
   }
 
   a {

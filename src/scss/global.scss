@@ -11,6 +11,7 @@
 html {
   box-sizing: border-box;
   font-size: 50%;
+  height: 100%;
 
   @include media-breakpoint-up($bp-largest) {
     font-size: 62.5%;
@@ -22,10 +23,16 @@ body {
   color: $color-grey-dark-2;
   font-weight: 300;
   line-height: 1.6;
+  height: 100%;
 
-  margin-top: $navbar-height;
+  padding-top: $navbar-height;
 
   @include media-breakpoint-up($bp-navbar) {
-    margin-top: 0;
+    padding-top: 0;
   }
+}
+
+// For fixed footer
+#___gatsby, #___gatsby > div {
+  height: 100%;
 }

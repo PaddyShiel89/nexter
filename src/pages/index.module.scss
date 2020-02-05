@@ -1,0 +1,22 @@
+@import '../scss/main.scss';
+
+.container {
+  align-self: flex-start;
+  grid-template-rows: calc(100vh - 6rem);
+  grid-template-columns:
+    [full-start] $margin-col-width
+    [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
+    [center-end]
+    $margin-col-width [full-end];
+
+  @include media-breakpoint-up($bp-medium) {
+    grid-template-rows: 80vh min-content minmax(min-content, 40vw) repeat(
+        3,
+        min-content
+      );
+  }
+  
+  @include media-breakpoint-up($bp-large) {
+    grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+  }
+}

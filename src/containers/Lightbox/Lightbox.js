@@ -16,7 +16,7 @@ class Lightbox extends Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener("keyup")
+    window.removeEventListener("keyup", this.handleKeyUp)
   }
 
   // Gallery thumbnail clicks

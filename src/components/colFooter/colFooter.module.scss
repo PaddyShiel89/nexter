@@ -1,8 +1,10 @@
 @import "../../scss/main.scss";
 
 .footer {
+  grid-row: $footer-row;
+  grid-column: $content-cols;
+
   background-color: $color-secondary;
-  grid-column: $full-cols;
   padding: 6rem;
 
   ul {

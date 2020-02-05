@@ -20,9 +20,14 @@ $font-display: "Josefin Sans", sans-serif;
 
 // GRID
 // Column sections
+$content-cols: content-start / content-end;
 $center-cols: center-start / center-end;
 $full-cols: full-start / full-end;
 $sidebar-cols: sidebar-start / sidebar-end;
+
+// Row sections
+$content-row: content-row-start / content-row-end;
+$footer-row: footer-row-start / footer-row-end;
 
 $margin-col-width: minmax(6rem, 1fr);
 
