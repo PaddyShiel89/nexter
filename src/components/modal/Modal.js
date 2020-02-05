@@ -17,6 +17,7 @@ const Modal = ({ children, modalOpen, style, toggleModalFunction }) => {
       isOpen={modalOpen}
       onRequestClose={toggleModalFunction}
       overlayClassName={styles.overlay}
+      style={style}
     >
       {children}
     </ReactModal>
