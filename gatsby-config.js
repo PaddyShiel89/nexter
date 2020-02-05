@@ -8,13 +8,28 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `nexter`,
+        short_name: `nexter`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#b28451`,
+        theme_color: `#b28451`,
         display: `minimal-ui`,
         icon: `src/images/favicon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Josefin Sans`,
+            variants: [`300`, `400`, `400i`]
+          },
+          {
+            family: `Nunito`,
+            variants: [`300`, `300i`]
+          },
+        ],
       },
     },
     `gatsby-plugin-react-helmet`,
@@ -31,6 +46,6 @@ module.exports = {
     `gatsby-transformer-sharp`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`
   ],
 }
