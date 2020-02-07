@@ -4,7 +4,7 @@ import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
 import { houses, realtors } from '../../rawData'
 
-import Modal from '../modal/Modal'
+import Modal from '../../containers/Modal/Modal'
 
 const houseData = [...houses]
 const realtorData = [...realtors]

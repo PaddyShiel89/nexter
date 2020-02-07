@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
-import Modal from "../../components/modal/Modal"
+import Modal from "../Modal/Modal"
 import styles from "./Lightbox.module.scss"
 import { Swipeable } from "react-swipeable"
 
