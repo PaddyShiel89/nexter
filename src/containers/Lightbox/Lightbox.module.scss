@@ -93,7 +93,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(#000, .4);
+    background-color: rgba(#000, 0.4);
     opacity: 0;
 
     transition: opacity .2s;
@@ -136,11 +136,11 @@
 
     color: #fff;
     font-family: $font-display;
-    opacity: 40%;
+    opacity: 0.4;
     transition: opacity 0.2s;
 
     &:hover {
-      opacity: 75%;
+      opacity: 0.75;
     }
   
     span {
