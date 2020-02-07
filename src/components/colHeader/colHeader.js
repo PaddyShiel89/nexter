@@ -10,42 +10,42 @@ const Header = () => {
       logo: file(relativePath: { eq: "header/logo.png" }) {
         childImageSharp {
           fixed(height: 30) {
-            ...GatsbyImageSharpFixed
+            ...GatsbyImageSharpFixed_withWebp
           }
         }
       }
       logoBBC: file(relativePath: { eq: "header/logo-bbc.png" }) {
         childImageSharp {
           fixed(height: 25) {
-            ...GatsbyImageSharpFixed
+            ...GatsbyImageSharpFixed_withWebp
           }
         }
       }
       logoBi: file(relativePath: { eq: "header/logo-bi.png" }) {
         childImageSharp {
           fixed(height: 25) {
-            ...GatsbyImageSharpFixed
+            ...GatsbyImageSharpFixed_withWebp
           }
         }
       }
       logoForbes: file(relativePath: { eq: "header/logo-forbes.png" }) {
         childImageSharp {
           fixed(height: 25) {
-            ...GatsbyImageSharpFixed
+            ...GatsbyImageSharpFixed_withWebp
           }
         }
       }
       logoTechcrunch: file(relativePath: { eq: "header/logo-techcrunch.png" }) {
         childImageSharp {
           fixed(height: 25) {
-            ...GatsbyImageSharpFixed
+            ...GatsbyImageSharpFixed_withWebp
           }
         }
       }
       background: file(relativePath: { eq: "header/hero.jpeg" }) {
         childImageSharp {
           fluid {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }

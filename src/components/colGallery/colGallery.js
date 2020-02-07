@@ -13,7 +13,7 @@ const Gallery = ({ id }) => {
           childImageSharp {
             id
             fluid {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
               originalName
             }
           }

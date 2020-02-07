@@ -20,7 +20,7 @@ const Homes = props => {
           childImageSharp {
             id
             fluid {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
@@ -33,7 +33,7 @@ const Homes = props => {
           childImageSharp {
             id
             fluid {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }

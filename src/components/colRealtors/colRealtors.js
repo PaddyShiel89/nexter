@@ -15,7 +15,7 @@ const Realtors = () => {
           childImageSharp {
             id
             fluid {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
