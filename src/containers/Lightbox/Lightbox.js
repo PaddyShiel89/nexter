@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import { Link } from "gatsby"
 import Img from "gatsby-image"
 import Modal from "../Modal/Modal"
 import styles from "./Lightbox.module.scss"
@@ -59,25 +58,24 @@ class Lightbox extends Component {
   }
 
   render() {
-
     const swipeConfig = { delta: 60 }
 
     return (
       <>
         <section className={styles.Gallery} id={this.props.id}>
           {this.props.images.map((img, i) => (
-            <Link
+            <a
               className={styles.GalleryLink}
               key={`${img.childImageSharp.id}Img`}
               onClick={this.handleClickImage.bind(this, i)}
-              to={img.childImageSharp.fluid.src}
+              href={img.childImageSharp.fluid.src}
             >
               <Img
                 alt={`Home ${i}`}
                 className={styles.GalleryImage}
                 fluid={img.childImageSharp.fluid}
               />
-            </Link>
+            </a>
           ))}
         </section>
         <Modal
