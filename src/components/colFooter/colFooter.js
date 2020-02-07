@@ -31,9 +31,20 @@ const footer = () => (
       produce your own course or tutorials based on this project.
     </p>
     <p>
-      &copy; Copyright {new Date().getFullYear()} design changes and conversions
-      by Patrick Shiel.
+      Site built with design changes and conversions by Patrick Shiel, 2020.
     </p>
+
+    <nav className={styles.personalLinks}>
+      <ul>
+      <li>
+          <a href="https://github.com/PaddyShiel89/nexter">Github</a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/patrick-shiel-27944131/">LinkedIn</a>
+        </li>
+      </ul>
+    </nav>
+
   </footer>
 )
 
