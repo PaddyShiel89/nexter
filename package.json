@@ -2,7 +2,7 @@
   "name": "nexter",
   "private": true,
   "description": "CSS Grid project. Original design by Jonas Schmedtmann. Additions and conversions by Patrick Shiel.",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Patrick Shiel",
   "dependencies": {
     "gatsby": "^2.18.12",
