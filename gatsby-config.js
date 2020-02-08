@@ -3,6 +3,7 @@ module.exports = {
     title: `nexter — your home, your freedom`,
     description: `CSS Grid project. Original design by Jonas Schmedtmann. Additions and conversions by Patrick Shiel.`,
     author: `@paddyshiel`,
+    url: `https://paddyshiel-nexter.netlify.com`,
   },
   plugins: [
     {

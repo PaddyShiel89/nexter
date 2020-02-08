@@ -13,6 +13,7 @@ const Sidebar = () => {
         onClick={() => setOpen(!open)}
         aria-controls={navId}
         aria-expanded={open}
+        aria-label={`${open ? `Close` : `Open`} navigation menu`}
       >
         <div className={styles.navIcon}></div>
       </button>

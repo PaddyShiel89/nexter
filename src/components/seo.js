@@ -10,8 +10,8 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, title }) {
-  const { site } = useStaticQuery(
+function SEO({ description, lang, meta, title, image, pathname }) {
+  const data = useStaticQuery(
     graphql`
       query {
         site {
@@ -19,29 +19,50 @@ function SEO({ description, lang, meta, title }) {
             title
             description
             author
+            url
+          }
+        }
+        defaultImage: file(relativePath: { eq: "header/hero.jpeg" }) {
+          childImageSharp {
+            fluid {
+              src
+            }
           }
         }
       }
     `
   )
 
+  const { site, defaultImage } = data
+
   const metaDescription = description || site.siteMetadata.description
+  const metaImage = `${site.siteMetadata.url}${image ||
+    defaultImage.childImageSharp.fluid.src}`
+  const metaUrl = `${site.siteMetadata.url}${pathname || "/"}`
 
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      title={title === `Home` ? site.siteMetadata.title : title}
+      titleTemplate={
+        title === `Home`
+          ? site.siteMetadata.title
+          : `%s | ${site.siteMetadata.title}`
+      }
       meta={[
         {
           name: `description`,
           content: metaDescription,
         },
         {
+          name: `image`,
+          content: metaImage,
+        },
+        {
           property: `og:title`,
-          content: title,
+          content: title === `Home` ? site.siteMetadata.title : title,
         },
         {
           property: `og:description`,
@@ -52,8 +73,16 @@ function SEO({ description, lang, meta, title }) {
           content: `website`,
         },
         {
+          property: `og:image`,
+          content: metaImage,
+        },
+        {
+          property: `og:url`,
+          content: metaUrl,
+        },
+        {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
         },
         {
           name: `twitter:creator`,
@@ -61,11 +90,15 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: title === `Home` ? site.siteMetadata.title : title,
         },
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          property: `twitter:image`,
+          content: metaImage,
         },
       ].concat(meta)}
     />
@@ -83,6 +116,8 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
+  image: PropTypes.string,
+  pathname: PropTypes.string,
 }
 
 export default SEO
