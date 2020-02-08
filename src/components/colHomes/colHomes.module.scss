@@ -67,10 +67,6 @@
   &Selected {
     color: $color-primary;
     animation: swellshrink .35s ease-in-out;
-
-    &:hover {
-      color: #fff;
-    }
   }
 
   svg {
